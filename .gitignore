@@ -1,5 +1,3 @@
 *.zip
 __pycache__
-tests/
-ok
-.ok*
+
