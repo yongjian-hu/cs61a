@@ -33,6 +33,12 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    sum = 0
+    while y != 0:
+        sum += y % 10
+        y //= 10
+
+    return sum
 
 
 
@@ -52,5 +58,15 @@ def double_eights(n):
     False
     """
     "*** YOUR CODE HERE ***"
+    prev = n % 10
+    n //= 10
+    while n != 0:
+        cur = n % 10
+        if prev == 8 and prev == cur:
+            return True
+        n //= 10
+        prev = cur
+
+    return False
 
 
