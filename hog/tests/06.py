@@ -108,16 +108,15 @@ test = {
           ...     print('**', s1)
           ...     return echo_1
           >>> s0, s1 = play(always_roll(1), always_roll(1), dice=make_test_dice(2), goal=3, say=both(echo_0, echo_1))
-          3f321d5ce997d2f3989685f56de8bdce
-          4a64fe964dc771a219ed773c3a146c75
-          3f321d5ce997d2f3989685f56de8bdce
-          e4010b4a7d51e81cc1f49e08b015b8eb
-          a6ba27fb33805545324a96eadcd30897
-          e4010b4a7d51e81cc1f49e08b015b8eb
-          # locked
+          * 2
+          ** 0
+          * 2
+          ** 2
+          * 4
+          ** 2
           """,
           'hidden': False,
-          'locked': True
+          'locked': False
         },
         {
           'code': r"""

@@ -181,7 +181,6 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     #         p_score = get_score(strategy, p_score, o_score, goal, dice)
     #     return p_score
 
-
     current_player = who
     while True:
         # if current_player == 0:
@@ -201,16 +200,17 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
         p_score += pts
         score0 = p_score if current_player == 0 else o_score
         score1 = o_score if current_player == 0 else p_score
+
+        say = say(score0, score1)
+
         if p_score >= goal:
             break
         if not extra_turn(p_score, o_score):
             current_player = other(current_player)
-                
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
     "*** YOUR CODE HERE ***"
-
     # END PROBLEM 6
     return score0, score1
 
@@ -295,6 +295,13 @@ def announce_highest(who, last_score=0, running_high=0):
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
+    def say(score0, score1):
+        score = score0 if who == 0 else score1
+        if score - last_score > running_high:
+            print("{} point(s)! The most yet for Player {}".format(score-last_score, who))
+
+        return announce_highest(who, score, (score - last_score) if (score - last_score) > running_high else running_high )
+    return say
     # END PROBLEM 7
 
 
