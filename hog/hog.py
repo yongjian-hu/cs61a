@@ -414,7 +414,7 @@ def run_experiments():
     if True:  # Change to True to test extra_turn_strategy
         print('extra_turn_strategy win rate:', average_win_rate(extra_turn_strategy))
 
-    if False:  # Change to True to test final_strategy
+    if True:  # Change to True to test final_strategy
         print('final_strategy win rate:', average_win_rate(final_strategy))
 
     "*** You may add additional experiments as you wish ***"
@@ -450,9 +450,21 @@ def final_strategy(score, opponent_score):
     """Write a brief description of your final strategy.
 
     *** YOUR DESCRIPTION HERE ***
+
+    Using 6 rolls as default.
     """
     # BEGIN PROBLEM 12
-    return extra_turn_strategy(score, opponent_score, 6, 6)
+    bacon_score = free_bacon(opponent_score)
+    cutoff = 10
+    default_rolls = 6
+    if bacon_score + score >= GOAL_SCORE:
+        return 0
+    elif GOAL_SCORE - score <= 12:
+        import random
+        return random.randint(0, 3)
+    else:
+        return extra_turn_strategy(score, opponent_score, cutoff, default_rolls)
+
     # return 6  # Replace this statement
     # END PROBLEM 12
 
